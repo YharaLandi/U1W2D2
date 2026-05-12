@@ -50,7 +50,7 @@ const utente = {
   indirizzo: {
     via: "Via Roma 10",
     citta: "Napoli",
-    cap: "80100"
+    cap: "80100" //il cap non può essere un numero perchè gli 00 iniziali non verrebbero letti se all'inizio
   }
 };
 
@@ -65,7 +65,7 @@ console.log(utente.indirizzo.cap);
 */
 
 
-const chiave = "nome";
+let chiave = "nome";
 console.log(persona[chiave]); // equivale a persona["nome"], cioè persona.nome
 
 
@@ -173,7 +173,7 @@ console.log(carrello); //Penna Diario Zaino Astuccio
 */
 
 const prodotti = ["Penna", "Quaderno", "Diario"];
-const cercato = "Zaino";
+let cercato = "Zaino";
 
 // includes() restituisce true o false: l'elemento c'è o non c'è.
 console.log(`${cercato} è in carrello: ${prodotti.includes(cercato)}`);
@@ -185,3 +185,4 @@ if (posizione !== -1) {
 } else {
   console.log("Non in carrello");
 }
+
