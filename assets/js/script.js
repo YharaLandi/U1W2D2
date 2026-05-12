@@ -67,3 +67,121 @@ console.log(utente.indirizzo.cap);
 
 const chiave = "nome";
 console.log(persona[chiave]); // equivale a persona["nome"], cioè persona.nome
+
+
+/* ESERCIZIO 5 — Numero più grande
+   Tre numeri a, b, c.
+   Con if/else if, stampa il più grande. Se pareggio al massimo, stampa "Pareggio".
+*/
+
+let a = 1;
+let b = 3;
+let c = 3;
+
+// Confronto prima se a è più grande di c e b. 
+// Poi controllo b, poi c. Se nessuno è più grande, significa che ci sono almeno due valori uguali
+if (a > b && a > c) {
+  console.log(a);
+} else if (b > a && b > c) {
+  console.log(b);
+} else if (c > a && c > b) {
+  console.log(c);
+} else {
+  console.log("Pareggio");
+}
+
+
+/* ESERCIZIO 6 — E-commerce: spedizione
+   Variabile "totale".
+   Se totale >= 50 spedizione gratuita, altrimenti 9.90.
+   Stampa: "Totale carrello: 35€ — Spedizione: 9.90€ — Totale finale: 44.90€"
+   Risolvi una volta con if/else e una volta con ternario.
+*/
+
+let totale = 35;
+let spedizione; //undefined perchè verrà calcolata solo dopo aver eseguito l'if
+
+if (totale >= 50) {
+  spedizione = 0;
+} else {
+  spedizione = 9.90;
+}
+console.log(`Totale carrello: ${totale}€ — Spedizione: ${spedizione}€ — Totale finale: ${totale + spedizione}€`);
+
+/* ESERCIZIO 7 — typeof check
+   Crea un array con 3 valori diversi (es. [42, "ciao", true]).
+   Con un for + if, per ogni elemento stampa "x è un numero" o "x non è un numero".
+*/
+
+const valori = [42, "ciao", true, 1994, "Napoli", 2026];
+
+for (let i = 0; i < valori.length; i++) { //i viene incrementato di uno ogni volta che l'if viene "completato", questo avviene scorrendo l'array per la sua lunghezza
+  if (typeof valori[i] === "number") { //"number" è un'etichetta per descrivere i numeri in js. 
+    console.log(`${valori[i]} è un numero`);
+  } else {
+    console.log(`${valori[i]} non è un numero`);
+  }
+}
+
+
+/* ESERCIZIO 8 — Array dei numeri
+   Array vuoto. Aggiungi 1..5 con push. Aggiungi 0 all'inizio con unshift.
+   Stampa array e length.
+*/
+
+const numeri = []; 
+
+// push() aggiunge un elemento in fondo
+numeri.push(1);
+numeri.push(2);
+numeri.push(3);
+numeri.push(4);
+numeri.push(5);
+
+// unshift() aggiunge un elemento all'inizio e sposta tutti gli altri di una posizione a destra.
+numeri.unshift(0);
+
+console.log(numeri);//nuovo arr
+console.log(numeri.length); //lunghezza     
+console.log(numeri [numeri.length -1]); //indice dell'ultimo 
+
+
+/* ESERCIZIO 9 — Carrello con splice
+   Array ["Penna", "Quaderno", "Zaino", "Astuccio"].
+   Con splice: rimuovi "Quaderno", poi inserisci "Diario" al suo posto.
+   Stampa dopo ogni operazione.
+*/
+
+// splice(indice, quantità_da_rimuovere, ...elementi_da_inserire)
+const carrello = ["Penna", "Quaderno", "Zaino", "Astuccio"];
+
+// "Quaderno" è all'indice 1. Passo 1 come quantità: ne rimuovo solo uno.
+carrello.splice(1, 1);
+console.log(carrello); // Penna Zaino Astuccio
+
+// Ora inserisco "Diario" all'indice 1 
+// Il secondo parametro è 0: non rimuovo nulla, aggiungo soltanto.
+carrello.splice(1, 0, "Diario");
+console.log(carrello); //Penna Diario Zaino Astuccio
+
+
+/* ESERCIZIO 10 — Cerca un articolo
+   Array prodotti = ["Penna", "Quaderno", "Zaino"].
+   cercato = "Zaino".
+   Con includes: stampa "Zaino è in carrello: true".
+   Con indexOf: stampa la posizione, o "Non in carrello".
+*/
+
+const prodotti = ["Penna", "Quaderno", "Diario"];
+const cercato = "Zaino";
+
+// includes() restituisce true o false: l'elemento c'è o non c'è.
+console.log(`${cercato} è in carrello: ${prodotti.includes(cercato)}`);
+
+// indexOf() restituisce l'indice della prima corrispondenza, oppure -1 se non trovato.
+const posizione = prodotti.indexOf(cercato);
+if (posizione !== -1) {
+  console.log(`${cercato} trovato alla posizione ${posizione}`);
+} else {
+  console.log("Non in carrello");
+}
